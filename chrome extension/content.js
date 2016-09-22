@@ -8,16 +8,12 @@ function getElement(link){
 }
 
 $(document).bind("DOMSubtreeModified", function() {
-	// console.log(count%6);
 	var linkArray=[];
 	
 	var x=$(".job_name>a" );
-	// console.log("xlength"+x.length);
-	// console.log(jobCount);
 	if(jobCount!=x.length){
 
 		for(i=0 ;i<x.length;i++){
-			// console.log($(x[i]).attr("href"));		
 			linkArray.push($(x[i]).attr("href"));
 		}
 		$.ajax({
@@ -27,13 +23,10 @@ $(document).bind("DOMSubtreeModified", function() {
 				data: JSON.stringify({"linkArray":linkArray}),
 				dataType: "json"
 			}).done(function(data) {
-				//console.log(Object.keys(data).length);
-				// console.log(data);
 				var obj = JSON.parse(data);
-				// console.log("ya--------------------------------------------");
+
 				for(idx=0 ;idx<linkArray.length;idx++){
 					var target=getElement(linkArray[idx]);
-					// console.log(target);
 					var exitDayTemp=0;	
 					if(obj[linkArray[idx]]){exitDayTemp = obj[linkArray[idx]];}
 					console.log(exitDayTemp);

@@ -1,5 +1,4 @@
 #coding=utf-8
-#import boto3
 import decimal
 import requests
 from bs4 import BeautifulSoup
